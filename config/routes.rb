@@ -1,10 +1,14 @@
 App::Application.routes.draw do
+  # get "users/show"
   devise_for :users
+  resources :users, only: [:show]
+  
 
   # get "static_pages/home"
   root :to => 'static_pages#home'
   # match '/about', to: 'static_pages#about'
   get '/about', to: 'static_pages#about'
+
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

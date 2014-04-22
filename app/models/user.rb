@@ -40,6 +40,7 @@ class User
 
   field :name, type: String, default: ""
   validates_presence_of :name
+  # Ojocuidao que letras con tilde darían fallo
   validates_format_of :name, with: /[A-Z](\w)*/
 
   # Setup accessible (or protected) attributes for your model

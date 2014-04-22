@@ -1,9 +1,17 @@
 <h1>StaticPages#home</h1>
 <p>Find me in app/views/static_pages/home.html.erb</p>
+<% if user_signed_in? %>
+	<% @users.each do |eachuser| %>
+		<p>User: <%= eachuser.name %> Email: <%= link_to eachuser.email, eachuser %></p>
+	<% end %>
+<% else %>
+	<p>Log in to see users</p>
+<% end %>
+
 <%= link_to "about", about_path %>
 
 <% if user_signed_in? %>
-	<p>Bienvenido <%= current_user.email %>. <%=link_to "Cerrar sesion", destroy_user_session_path, method: :delete %></p>	
+	<p>Bienvenido <%= current_user.email %>. <%= link_to('Edit account', edit_user_registration_path) %>, o <%=link_to "Cerrar sesion", destroy_user_session_path, method: :delete %></p>	
 <%else%>
 	<p>Crear cuenta <%= link_to "Crear cuenta", new_user_registration_path %></p>
 	<p>Logueate <%= link_to "Log in", new_user_session_path %></p>
