@@ -1,6 +1,5 @@
 class Event
   include Mongoid::Document
-
   # Defino los fields
   field :title, type: String
   field :place, type: String
