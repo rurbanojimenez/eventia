@@ -6,7 +6,13 @@
 <% if user_signed_in? %>
 	<p>SI estas logueado, mostrando usuarios...</p>
 	<% @users.each do |eachuser| %>
-		<p>User: <%= eachuser.name %> Email: <%= link_to eachuser.email, eachuser %></p>
+		<p>User: <%= eachuser.name %> 
+			<%if current_user == eachuser %>
+			Email: <%= link_to eachuser.email, eachuser %>
+			<%else%>
+			Email: <%=eachuser.email%>
+			<%end%>
+		</p>
 	<% end %>
 <% else %>
 	<p>NO estas logueado</p>
@@ -15,6 +21,10 @@
 <hr>
 <% if user_signed_in? %>
 	<p>SI estas logueado</p>
+	<p>
+		<%=link_to('Ver eventos', events_path)%>
+		<%=link_to('Crear nuevo evento', new_event_path)%>
+	</p>
 	<p>Bienvenido <%= current_user.email %>. <%= link_to('Edit account', edit_user_registration_path) %>, o <%=link_to "Cerrar sesion", destroy_user_session_path, method: :delete %></p>	
 <%else%>
 	<p>NO estas logueado</p>

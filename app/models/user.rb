@@ -1,5 +1,10 @@
 class User
   include Mongoid::Document
+
+  # has_many :events, dependent: :destroy # usuario crea evento
+  has_many :mis_eventos, class_name: "Event", inverse_of: :mi_creador, dependent: :destroy
+  has_and_belongs_to_many :eventos_seguidos, class_name: "Event", inverse_of: :followers # usuarios pueden seguir eventos
+  
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,

@@ -3,6 +3,8 @@ source 'https://rubygems.org'
 gem 'rails', '3.2.16'
 gem 'mongoid', '3.1.6'
 gem 'devise'
+gem 'cancan'
+gem 'dynamic_form'
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 

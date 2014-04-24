@@ -1,0 +1,23 @@
+<%= form_for(@event) do |f| %>
+	<!--<%= render 'shared/error_messages', object: f.object %>-->
+	<%#esto es gracias a la gema dynamic_form%>
+	<%=f.error_messages  %>
+
+	<%=f.label :title %>
+	<br>
+	<%=f.text_field :title %>
+	<br>
+	<%=f.label :place %>
+	<br>
+	<%=f.text_field :place %>
+	<br>
+	<%=f.label :date, "Fecha prevista" %>
+	<br>
+	<%=f.date_select :date, start_year: Date.today.year, end_year: Date.today.year + 20, order: [:day, :month, :year]%>
+	<br>
+	<%=f.label :description %>
+	<br>
+	<%=f.text_area :description, size: "24x3" %>
+	<br>
+	<%=f.submit "Crear evento" %>
+<%end%>

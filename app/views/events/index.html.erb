@@ -1,0 +1,12 @@
+<div>
+	<% if @events.any? %>
+		<% @events.each do |eachevent| %>
+			<p>Evento: <%= eachevent.title %></p> <p>Lugar: <%= eachevent.place %></p>
+			<p><%=link_to('Ver evento', eachevent)%></p>
+			<hr>
+		<% end %>
+	<%else%>
+		<p>No events!</p>
+	<%end%>
+</div>
+<%=link_to('Back to home', root_path)%>
