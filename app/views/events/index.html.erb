@@ -2,6 +2,7 @@
 	<% if @events.any? %>
 		<% @events.each do |eachevent| %>
 			<p>Evento: <%= eachevent.title %></p> <p>Lugar: <%= eachevent.place %></p>
+			<p>Creador: <%= eachevent.mi_creador.name %></p>
 			<p><%=link_to('Ver evento', eachevent)%></p>
 			<hr>
 		<% end %>
