@@ -5,6 +5,7 @@ gem 'mongoid', '3.1.6'
 gem 'devise'
 gem 'cancan'
 gem 'dynamic_form'
+gem 'bootstrap-sass', '~>3.1.1.1'
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
