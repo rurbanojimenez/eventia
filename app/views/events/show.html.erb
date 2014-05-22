@@ -1,6 +1,15 @@
-<div>
-	hola soy el evento de título: <%= @event.title %>
-	<br>
-	y me ha creado <%= @event.mi_creador.name %>
+<h3>Event <%= @event.title %></h3>
+<div class="row container-fluid">
+	<div class="col-md-4 well">
+		Event title: <%= @event.title %>
+		<br>
+		Created by: <%= @event.mi_creador.name %>
+		<br>
+		Place: <%= @event.place %>
+		<br>
+		Date: <%= @event.date.to_s %>
+		<br>
+		Description: <%= @event.description %>
+	</div>
 </div>
-<%=link_to('Back to events', events_path)%> <%=link_to('Back to home', root_path)%>
+<%=link_to('Back to events', events_path, class: "btn btn-default")%> <%=link_to('Back to home', root_path, class: "btn btn-default")%>

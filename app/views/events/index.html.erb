@@ -1,13 +1,29 @@
 <div>
 	<% if @events.any? %>
-		<% @events.each do |eachevent| %>
-			<p>Evento: <%= eachevent.title %></p> <p>Lugar: <%= eachevent.place %></p>
-			<p>Creador: <%= eachevent.mi_creador.name %></p>
-			<p><%=link_to('Ver evento', eachevent)%></p>
-			<hr>
-		<% end %>
+	<h3>Events:</h3>
+	<div class="row container-fluid">
+		<table class="table table-condensed  table-hover">
+			<thead>
+				<tr>
+					<th><strong>Event</strong></th>
+					<th><strong>Place</strong></th>
+					<th><strong>Actions</strong></th>
+				</tr>
+			</thead>
+			<tbody>
+				<% @events.each do |eachevent| %>
+					<tr>
+						<td><%= eachevent.title %></td>
+						<td><%= eachevent.place %></td>
+						<td><%=link_to('Details', eachevent, class: "btn btn-default")%></td>
+						<!--BOTONES FOLLOW/UNFOLLOW Y DELETE-->
+					</tr>
+				<% end %>
+			</tbody>
+		</table>
+	</div>
 	<%else%>
-		<p>No events!</p>
+		<h3>No events!</h3>
 	<%end%>
 </div>
-<%=link_to('Back to home', root_path)%>
+<%=link_to('Back to home', root_path, class: "btn btn-default")%>
