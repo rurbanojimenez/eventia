@@ -1,6 +1,6 @@
 class EventsController < ApplicationController
   before_filter :authenticate_user!
-  
+
   def new
   	@event = Event.new
   end
@@ -22,8 +22,19 @@ class EventsController < ApplicationController
 
   def index
   	@events = Event.all
+    #@conection = user_event_conection(@event)
   end
 
   def destroy
+    @ev = Event.find(params[:id])
+    @ev.destroy
+    flash[:success] = "Event deleted."
+    redirect_to root_url
   end
+
+  #private
+    def user_event_conection(ev)
+      current_user.eventos_seguidos.include?(ev)
+    end
+
 end

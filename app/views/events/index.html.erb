@@ -15,8 +15,12 @@
 					<tr>
 						<td><%= eachevent.title %></td>
 						<td><%= eachevent.place %></td>
-						<td><%=link_to('Details', eachevent, class: "btn btn-default")%></td>
+						<td><%=link_to('Details', eachevent, class: "btn btn-default")%>
 						<!--BOTONES FOLLOW/UNFOLLOW Y DELETE-->
+						<%if current_user.id == eachevent.mi_creador.id%>
+							<%=link_to "Delete", eachevent, method: :delete, data: {confirm: "You sure?" }, class: "btn btn-danger" %>
+						<%end%>
+						</td>
 					</tr>
 				<% end %>
 			</tbody>
