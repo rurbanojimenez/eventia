@@ -25,15 +25,17 @@
 							<li>
 								<a href="" class="dropdown-toggle" data-toggle="dropdown">Welcome <%= current_user.email %> <span class="caret"></span></a>
 								<ul class="dropdown-menu">
+									<li class="dropdown-header">Events</li>
+									<li><%=link_to('Events', events_path)%></li>
+									<li><%=link_to('New event', new_event_path)%></li>
 									<li class="dropdown-header">Account</li>
 									<li><%=link_to "View profile", current_user %></li>
 									<li><%= link_to('Edit account', edit_user_registration_path) %></li>
 									<li><%=link_to "Log out", destroy_user_session_path, method: :delete %></li>
-									<li class="dropdown-header">Events</li>
-									<li><%=link_to('Events', events_path)%></li>
-									<li><%=link_to('New event', new_event_path)%></li>
+									
 								</ul>
 							</li>
+							<li><%= link_to "Registered users", users_path %></li>
 						<%else%>
 							<li><%= link_to "New account", new_user_registration_path %></li>
 							<li><%= link_to "Log in", new_user_session_path %></li>

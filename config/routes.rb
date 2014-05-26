@@ -1,7 +1,7 @@
 App::Application.routes.draw do
   # get "users/show"
   devise_for :users
-  resources :users, only: [:show]
+  resources :users, only: [:show, :index]
   resources :events, only: [:new, :create, :show, :index, :destroy]
 
   # get "static_pages/home"
@@ -9,6 +9,9 @@ App::Application.routes.draw do
   # match '/about', to: 'static_pages#about'
   get '/about', to: 'static_pages#about'
 
+  get '/404', to: 'static_pages#not_found'
+  get '/422', to: 'static_pages#server_error'
+  get '/500', to: 'static_pages#server_error'
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

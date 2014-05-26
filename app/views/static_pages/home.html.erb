@@ -6,36 +6,6 @@
 			<%=link_to('New event', new_event_path, class: "btn btn-primary")%>
 		</p>
 	</div>
-	
-	<p>List of registered users:</p>
-	<div class="table-responsive">
-		
-		<table class="table">
-			<thead>
-				<tr>
-					<th><strong>User</strong></th>
-					<th><strong>Email</strong></th>
-				</tr>
-			</thead>
-			<tbody>
-				<% @users.each do |eachuser| %>
-					<tr>
-						<td>
-							<%= eachuser.name %>
-						</td>
-						<td>
-							<%if current_user == eachuser %>
-								<%= link_to eachuser.email, eachuser %>
-							<%else%>
-								<%=eachuser.email%>
-							<%end%>
-						</td>
-					</tr>
-				<% end %>
-			</tbody>
-		</table>
-	</div>
-	
 <% else %>
 	<div class="jumbotron">
 		<h2>Eventia</h2>
