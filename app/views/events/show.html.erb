@@ -10,6 +10,12 @@
 		Date: <%= @event.date.to_s %>
 		<br>
 		Description: <%= @event.description %>
+
 	</div>
 </div>
+<%if current_user.id == @event.mi_creador.id%>
+	<%=link_to "Delete event", @event, method: :delete, data: {confirm: "You sure?" }, class: "btn btn-danger" %>
+<%end%>
+<br>
+<br>
 <%=link_to('Back to events', events_path, class: "btn btn-default")%> <%=link_to('Back to home', root_path, class: "btn btn-default")%>
