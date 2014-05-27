@@ -6,7 +6,7 @@
 			<thead>
 				<tr>
 					<th><strong>Event</strong></th>
-					<th><strong>Place</strong></th>
+					<th><strong>Followers</strong></th>
 					<th><strong>Actions</strong></th>
 				</tr>
 			</thead>
@@ -14,7 +14,7 @@
 				<% @events.each do |eachevent| %>
 					<tr>
 						<td><%= eachevent.title %></td>
-						<td><%= eachevent.place %></td>
+						<td><%= eachevent.followers.count %></td>
 						<td><%=link_to('Details', eachevent, class: "btn btn-default")%>
 						<!--BOTONES FOLLOW/UNFOLLOW Y DELETE-->
 						<%if current_user.id == eachevent.mi_creador.id%>

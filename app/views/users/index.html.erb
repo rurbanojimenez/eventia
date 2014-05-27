@@ -12,14 +12,15 @@
 			<% @users.each do |eachuser| %>
 				<tr>
 					<td>
-						<%= eachuser.name %>
+						<%if current_user == eachuser %>
+							<%= link_to eachuser.name, eachuser %>
+						<%else%>
+							<%= eachuser.name %>
+						<%end%>
+						
 					</td>
 					<td>
-						<%if current_user == eachuser %>
-							<%= link_to eachuser.email, eachuser %>
-						<%else%>
-							<%=eachuser.email%>
-						<%end%>
+						<%=eachuser.email%>
 					</td>
 				</tr>
 			<% end %>

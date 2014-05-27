@@ -10,9 +10,11 @@
 		Date: <%= @event.date.to_s %>
 		<br>
 		Description: <%= @event.description %>
-
 	</div>
 </div>
+<button id="follow" class="btn btn-primary">Follow</button>
+<button id="unfollow" class="btn btn-warning">Unfollow</button>
+
 <%if current_user.id == @event.mi_creador.id%>
 	<%=link_to "Delete event", @event, method: :delete, data: {confirm: "You sure?" }, class: "btn btn-danger" %>
 <%end%>

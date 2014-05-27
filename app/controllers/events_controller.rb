@@ -18,11 +18,13 @@ class EventsController < ApplicationController
 
   def show
   	@event = Event.find(params[:id])
+    #@conection = @event.followers.include?(current_user)
+    #@conection = Event.where( :followers_ids.in => current_user.id )
   end
 
   def index
   	@events = Event.all
-    #@conection = user_event_conection(@event)
+
   end
 
   def destroy
@@ -32,9 +34,5 @@ class EventsController < ApplicationController
     redirect_to events_url
   end
 
-  #private
-    def user_event_conection(ev)
-      current_user.eventos_seguidos.include?(ev)
-    end
 
 end
