@@ -12,8 +12,15 @@
 		Description: <%= @event.description %>
 	</div>
 </div>
-<button id="follow" class="btn btn-primary">Follow</button>
-<button id="unfollow" class="btn btn-warning">Unfollow</button>
+<div id="invisible" class="oculto"><%= @event.followers.include?(current_user) %></div>
+<div id="botonFollow">
+	<button class="btn btn-primary">Follow</button>
+</div>
+<div id="botonUnfollow">
+	<button class="btn btn-warning">Unfollow</button>
+</div>
+<br>
+<br>
 
 <%if current_user.id == @event.mi_creador.id%>
 	<%=link_to "Delete event", @event, method: :delete, data: {confirm: "You sure?" }, class: "btn btn-danger" %>

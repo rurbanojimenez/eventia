@@ -6,20 +6,24 @@
 			<thead>
 				<tr>
 					<th><strong>Event</strong></th>
+					<th><strong>Created by</strong></th>
 					<th><strong>Followers</strong></th>
 					<th><strong>Actions</strong></th>
 				</tr>
 			</thead>
 			<tbody>
 				<% @events.each do |eachevent| %>
-					<tr>
+					<tr <%if eachevent.followers.include?(current_user)%>class="info"<%end%>>
 						<td><%= eachevent.title %></td>
+						<td>
+							<%=eachevent.mi_creador.name%>
+							<%if eachevent.mi_creador.name == current_user.name %>
+								<span class="text-primary"> (<span class="glyphicon glyphicon-info-sign"></span> You!)</span>
+							<%end%>
+						</td>
 						<td><%= eachevent.followers.count %></td>
-						<td><%=link_to('Details', eachevent, class: "btn btn-default")%>
-						<!--BOTONES FOLLOW/UNFOLLOW Y DELETE-->
-						<%if current_user.id == eachevent.mi_creador.id%>
-							<%=link_to "Delete", eachevent, method: :delete, data: {confirm: "You sure?" }, class: "btn btn-danger" %>
-						<%end%>
+						<td><%=link_to('Details & actions', eachevent, class: "btn btn-default")%>
+
 						</td>
 					</tr>
 				<% end %>
