@@ -18,13 +18,10 @@ class EventsController < ApplicationController
 
   def show
   	@event = Event.find(params[:id])
-    #@conection = @event.followers.include?(current_user)
-    #@conection = Event.where( :followers_ids.in => current_user.id )
   end
 
   def index
   	@events = Event.all
-
   end
 
   def destroy
@@ -33,6 +30,4 @@ class EventsController < ApplicationController
     flash[:success] = "Event deleted."
     redirect_to events_url
   end
-
-
 end
