@@ -49,7 +49,7 @@ class User
   validates_format_of :name, with: /[A-Z](\w)*/
 
   # Setup accessible (or protected) attributes for your model
-  attr_accessible :nuevo_evento_seguido, :name, :email, :password, :password_confirmation, :remember_me
+  attr_accessible :eventos_seguidos, :name, :email, :password, :password_confirmation, :remember_me
 
 
 end
