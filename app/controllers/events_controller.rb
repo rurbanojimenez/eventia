@@ -30,4 +30,17 @@ class EventsController < ApplicationController
     flash[:success] = "Event deleted."
     redirect_to events_url
   end
+
+  def update
+    @event = Event.find(params[:id])
+    if @event.update_attributes(params[:event])
+      respond_to do |format|
+        format.json{render nothing: true, status: 204} 
+      end
+    else
+      respond_to do |format|
+        format.json{render nothing: true, status: 422} 
+      end
+    end
+  end
 end

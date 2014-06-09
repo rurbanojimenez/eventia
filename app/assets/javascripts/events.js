@@ -10,7 +10,7 @@ $(function(){
 	}else{
 		visibilidad(botonUnfollow,botonFollow);
 	}
-
+	//el primer elemento se hará visible y el segundo invisible
 	function visibilidad(elemVisible, elemInvisible){
 		elemVisible.removeClass("oculto");
 		elemInvisible.removeClass("visible-inline-block");
@@ -20,10 +20,40 @@ $(function(){
 
 	//evento click en cada boton
 	botonFollow.click(function(){
-		visibilidad(botonUnfollow,botonFollow);
+		var event_id = $(this).attr("rel");
+		$.ajax({
+			url: "/events/" + event_id,
+			data: {
+				event: {
+					follower_id: $(this).attr("asdf")
+				}
+			},
+			type: "PUT",
+			success: function(){
+				visibilidad(botonUnfollow,botonFollow);
+			},
+			error: function(){
+				alert("error");
+			}
+		});
 	});
 	botonUnfollow.click(function(){
-		visibilidad(botonFollow,botonUnfollow);
+		var event_id = $(this).attr("rel");
+		$.ajax({
+			url:("/events/" + event_id),
+			data: {
+				event: {
+					unfollower_id: $(this).attr("asdf")
+				}
+			},
+			type: "PUT",
+			success: function(){
+				visibilidad(botonFollow,botonUnfollow);
+			},
+			error: function(){
+				alert("error");
+			}
+		});
 	});
 
 });

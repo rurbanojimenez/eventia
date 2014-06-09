@@ -2,7 +2,7 @@ App::Application.routes.draw do
   # get "users/show"
   devise_for :users
   resources :users, only: [:show, :index]
-  resources :events, only: [:new, :create, :show, :index, :destroy]
+  resources :events, only: [:new, :create, :show, :index, :destroy, :update] #except[:edit]
 
   # get "static_pages/home"
   root :to => 'static_pages#home'

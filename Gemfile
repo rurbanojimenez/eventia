@@ -3,7 +3,7 @@ source 'https://rubygems.org'
 gem 'rails', '3.2.16'
 gem 'mongoid', '3.1.6'
 gem 'devise'
-gem 'cancan'
+gem 'cancancan'
 gem 'dynamic_form'
 gem 'bootstrap-sass', '~>3.1.1.1'
 # Bundle edge Rails instead:
@@ -34,6 +34,7 @@ group :test do
 end
 
 gem 'jquery-rails'
+gem 'jquery-ui-rails'
 
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
